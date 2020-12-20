@@ -7,18 +7,9 @@ TASKS = 64
 if __name__ == '__main__':
 
     print('load program from cl source file')
-    # f = open('hello.cl', 'r', encoding='utf-8')
-    # kernels = ''.join(f.readlines())
-    # f.close()
-
-    kernels = '''
-    __kernel void hello_world(__global int* values) {
-
-        int global_id = get_global_id(0);
-        printf("Hello Taiwan!!! from kernel #%d, got value: %d\n", global_id, values[global_id]);
-
-    }
-    '''
+    f = open('hello.cl', 'r', encoding='utf-8')
+    kernels = ''.join(f.readlines())
+    f.close()
 
     print('prepare data ... ')
     start_time = time.time()
